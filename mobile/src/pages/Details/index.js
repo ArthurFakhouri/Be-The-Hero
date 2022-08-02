@@ -14,7 +14,7 @@ export function Details() {
 
   const incident = route.params.incident;
   const msg = `Olá ${incident.name}, estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).
-  format(incident.value)}`;
+    format(incident.value)}`;
 
   function handleNavigateToIncidents() {
     navigation.goBack();
@@ -42,16 +42,30 @@ export function Details() {
       </View>
 
       <View style={styles.incident}>
-        <Text style={[styles.incidentProperty, { marginTop: 0 }]}>ONG: </Text>
-        <Text style={styles.incidentValue}>{incident.name} de {incident.city}/{incident.uf}</Text>
+        <View style={styles.incidentHeader}>
+          <View>
+            <Text style={[styles.incidentProperty, { marginTop: 0 }]}>CASO: </Text>
+            <Text style={styles.incidentValue}>{incident.title}</Text>
+          </View>
 
-        <Text style={styles.incidentProperty}>CASO: </Text>
-        <Text style={styles.incidentValue}>{incident.title}</Text>
+          <View>
+            <Text style={[styles.incidentProperty, { marginTop: 0 }]}>ONG: </Text>
+            <Text style={styles.incidentValue}>{incident.name}</Text>
+          </View>
+        </View>
+
+        <Text style={styles.incidentProperty}>DESCRIÇÃO: </Text>
+        <Text style={styles.incidentValue}>{incident.description}</Text>
 
         <Text style={styles.incidentProperty}>Valor: </Text>
         <Text style={styles.incidentValue}>{
           Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).
             format(incident.value)}</Text>
+
+        <View style={styles.incidentLocation}>
+          <Feather name='map-pin' size={20} />
+          <Text> {incident.city}/{incident.uf}</Text>
+        </View>
       </View>
       <View style={styles.contactBox}>
         <Text style={styles.heroTitle}>Salve o dia!</Text>

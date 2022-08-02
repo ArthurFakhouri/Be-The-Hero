@@ -19,6 +19,11 @@ export const styles = StyleSheet.create({
     marginBottom: 16,
     marginTop: 48,
   },
+  incidentHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
   incidentProperty: {
     fontSize: 14,
     color: '#41414d',
@@ -30,6 +35,9 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     marginBottom: 24,
     color: '#737380'
+  },
+  incidentLocation: { 
+    flexDirection: 'row'
   },
   contactBox: {
     padding: 24,
